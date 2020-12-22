@@ -12,10 +12,10 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Star Wars Characters (DATA)
+// Tables and Waitlist Data
 // =============================================================
-var characters = [
-];
+var tables = [];
+var waitlist = [];
 
 // Routes
 // =============================================================
@@ -38,9 +38,9 @@ app.get("/api/tables", function(req, res) {
   return res.json(table);
 });
 
-// Displays all reservations
-app.get("/api/tables", function(req, res) {
-    return res.json(reservation);
+// Displays all waitlsits
+app.get("/api/waitlist", function(req, res) {
+    return res.json(waitlist);
   });
 
 
@@ -50,12 +50,8 @@ app.post("/api/reservations", function(req, res) {
   // This works because of our body parsing middleware
   var newReservation = req.body;
 
-  // Using a RegEx Pattern to remove spaces from newReservation
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newReservation.routeName = newReservationr.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newReservation);
-
+//   if statement to handle reservation based on current table occupancy 
   reservation.push(newReservation);
 
   res.json(newReservation);
