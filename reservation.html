@@ -17,7 +17,7 @@
         <h1>Hot Restaurant</h1>
         <h3>Make your reservation</h3>
         <hr />
-        <a href="/table.html"
+        <a href="/table"
           ><button class="btn btn-primary btn-lg"><span class="fa fa-list-alt"></span> tables</button></a
         >
         <a href="/"
@@ -55,5 +55,24 @@
          </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+      //add event listener for form button
+      $(".submit").on("click", function(event) {
+        event.preventDefault();
+        var newReservation = {
+          name: $("#reserve-name").val().trim(),
+          phoneNumber: $("#reserve-phone").val().trim(),
+          email: $("#reserve-email").val().trim(),
+          uniqueID: $("#reserve-unique-id").val().trim()
+        };
+  
+        // Question: What does this code do??
+        $.post("/api/reservations", newReservation)
+          .then(function(data) {
+            alert("Adding reservation...");
+          });
+      });
+    </script>
   </body>
 </html>
