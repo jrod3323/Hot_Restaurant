@@ -1,0 +1,23 @@
+{
+  "name": "hot_restaurant",
+  "version": "1.0.0",
+  "description": "restaurant waiting list",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrod3323/Hot_Restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrod3323/Hot_Restaurant/issues"
+  },
+  "homepage": "https://github.com/jrod3323/Hot_Restaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
