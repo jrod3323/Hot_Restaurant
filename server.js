@@ -16,6 +16,7 @@ app.use(express.json());
 // =============================================================
 var tables = [];
 var waitlist = [];
+var reservations = [];
 
 // Routes
 // =============================================================
@@ -35,7 +36,7 @@ app.get("/table", function(req, res) {
 
 // Displays all tables
 app.get("/api/tables", function(req, res) {
-  return res.json(table);
+  return res.json(tables);
 });
 
 // Displays all waitlsits
@@ -52,7 +53,11 @@ app.post("/api/reservations", function(req, res) {
 
 
 //   if statement to handle reservation based on current table occupancy 
-  reservation.push(newReservation);
+  if(tables.length >= 5){
+      waitlist.push(newReservation)
+  }else{
+      tables.push(newReservation)
+  }
 
   res.json(newReservation);
 });
